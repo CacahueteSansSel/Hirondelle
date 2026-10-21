@@ -3,3 +3,6 @@ obj
 *.dll
 *.exe
 .idea
+Build
+.DS_Store
+
