@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avaloniaEdit="https://github.com/avaloniaui/avaloniaedit"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Hirondelle.Windows.CodeViewerWindow"
+        Title="Visualisateur de code">
+    <DockPanel Margin="10">
+        <StackPanel DockPanel.Dock="Right" Margin="5 0 0 0" Width="200" Spacing="4">
+            <TextBlock TextAlignment="Center" FontWeight="Bold">Paramètres</TextBlock>
+            <CheckBox x:Name="OptionBlockComments" IsChecked="True" IsCheckedChanged="OptionBlockComments_OnIsCheckedChanged">
+                <TextBlock>Commentaires de blocs</TextBlock>
+            </CheckBox>
+            <TextBlock TextAlignment="Center" FontWeight="Bold">Actions</TextBlock>
+            <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="ExportButtonClicked">Exporter en texte</Button>
+        </StackPanel>
+        <avaloniaEdit:TextEditor x:Name="TextEditorView"
+                                 ShowLineNumbers="True"
+                                 FontFamily="Cascadia Code,Consolas,Menlo,Monospace"/>
+    </DockPanel>
+</Window>

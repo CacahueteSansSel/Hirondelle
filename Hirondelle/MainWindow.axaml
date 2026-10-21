@@ -1,0 +1,13 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="400" Height="135"
+        x:Class="Hirondelle.MainWindow" CanResize="False" CanMaximize="False"
+        Title="Hirondelle">
+    <StackPanel Orientation="Vertical" Margin="10" Spacing="15">
+        <TextBlock FontWeight="Bold">Bienvenue sur Hirondelle</TextBlock>
+        <TextBlock TextWrapping="Wrap">Outil d'analyse et d'extraction de formats et projets WINDEV développé à l'aide de windev-re.</TextBlock>
+        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="Button_OnClick">Ouvrir un projet WINDEV</Button>
+    </StackPanel>
+</Window>

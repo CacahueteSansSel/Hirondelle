@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:windevReader="clr-namespace:WindevReader;assembly=WindevReader"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Hirondelle.Windows.GlobalProceduresViewerWindow"
+        Title="Visualisateur de collections de procédures globales">
+    <DockPanel Margin="10">
+        <StackPanel Margin="0 0 0 10" DockPanel.Dock="Top">
+            <TextBlock FontWeight="Bold">Visualisation de la collection de procédures globales</TextBlock>
+            <TextBlock x:Name="CollectionName">Name</TextBlock>
+        </StackPanel>
+        <ListBox x:Name="ProcList" DoubleTapped="ProcList_OnDoubleTapped">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="windevReader:WindevProcedure">
+                    <StackPanel Orientation="Horizontal" Spacing="3">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <Panel Width="20"></Panel>
+                        <TextBlock Opacity="0.5" Text="{Binding CodeBlocks.Count}"></TextBlock>
+                        <TextBlock Opacity="0.5">Blocs</TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Window>

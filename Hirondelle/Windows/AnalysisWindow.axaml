@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:windevReader="clr-namespace:WindevReader;assembly=WindevReader"
+        mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="450"
+        x:Class="Hirondelle.Windows.AnalysisWindow"
+        Title="Visualisateur de l'analyse du projet">
+    <DockPanel Margin="10">
+        <DockPanel DockPanel.Dock="Left" Width="300">
+            <StackPanel DockPanel.Dock="Top" Margin="0 0 0 5">
+                <TextBlock x:Name="AnalysisVersionText" FontWeight="Bold">Analyse v0</TextBlock>
+                <TextBlock x:Name="AnalysisGuidText">GUID</TextBlock>
+            </StackPanel>
+            <ListBox x:Name="TableList" SelectionChanged="TableList_OnSelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="windevReader:WindevDataTable">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+        <DockPanel Margin="10,0">
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+                <TextBlock x:Name="TableNameText" FontWeight="Bold">Nom du fichier</TextBlock>
+                <TextBlock x:Name="TableCaptionText" FontWeight="Bold">Libellé</TextBlock>
+                <TextBlock x:Name="TablePhysicalNameText">Nom physique</TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                    <TextBlock FontSize="12" Width="300">Nom</TextBlock>
+                    <TextBlock FontSize="12" Width="300">Description</TextBlock>
+                    <TextBlock FontSize="12" Width="100">Type</TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <ListBox x:Name="FieldsList">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="windevReader:WindevDataField">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Width="300"></TextBlock>
+                            <TextBlock Text="{Binding Caption}" Width="300"></TextBlock>
+                            <TextBlock Text="{Binding Type}" Width="100"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+    </DockPanel>
+</Window>

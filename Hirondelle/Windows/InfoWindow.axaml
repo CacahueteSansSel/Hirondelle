@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="400" Height="200"
+        x:Class="Hirondelle.Windows.InfoWindow" CanMaximize="False" CanResize="False" CanMinimize="False"
+        Title="Information">
+    <DockPanel Margin="10">
+        <Panel DockPanel.Dock="Bottom">
+            <Button HorizontalAlignment="Center" Padding="50,4" Click="Button_OnClick">OK</Button>
+        </Panel>
+        <TextBlock x:Name="MessageText" FontWeight="Bold">Message</TextBlock>
+    </DockPanel>
+</Window>

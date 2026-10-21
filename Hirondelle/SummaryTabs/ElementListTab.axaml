@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:windevReader="clr-namespace:WindevReader;assembly=WindevReader"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Hirondelle.SummaryTabs.ElementListTab">
+    <DockPanel Margin="10,0">
+        <TextBlock FontWeight="Bold" DockPanel.Dock="Top" Margin="0 0 0 5">Liste des éléments du projet</TextBlock>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <TextBlock VerticalAlignment="Center" Width="200" FontSize="12">Nom de l'élément</TextBlock>
+            <TextBlock VerticalAlignment="Center" Width="50" FontSize="12">Position</TextBlock>
+            <TextBlock VerticalAlignment="Center" Width="200" FontSize="12">Configuration</TextBlock>
+        </StackPanel>
+        <ListBox x:Name="ElementList" DoubleTapped="ElementList_OnDoubleTapped">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="windevReader:WindevProjectReference">
+                    <StackPanel Orientation="Horizontal" Height="15">
+                        <TextBlock VerticalAlignment="Center" Width="200" Text="{Binding Name}"></TextBlock>
+                        <TextBlock VerticalAlignment="Center" Width="50" Text="{Binding Offset}"></TextBlock>
+                        <TextBlock VerticalAlignment="Center" Width="200" Text="{Binding ConfigurationName}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</UserControl>

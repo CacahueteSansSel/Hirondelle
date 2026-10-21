@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" CanMaximize="True" CanResize="True"
+        x:Class="Hirondelle.WindevProjectSummaryWindow" Width="800" Height="500"
+        Title="Description du projet WINDEV">
+    <DockPanel Margin="10">
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="200" Spacing="4">
+            <TextBlock x:Name="ProjectNameText" FontWeight="Bold">Project Name</TextBlock>
+            <TextBlock x:Name="ProjectWDVersionText">Windev XX</TextBlock>
+            <Panel Height="20"></Panel>
+            <Button HorizontalAlignment="Stretch" Click="HeaderTabButtonClicked">Entête</Button>
+            <Button HorizontalAlignment="Stretch" Click="ConfigListButtonClicked">Liste des configurations</Button>
+            <Button HorizontalAlignment="Stretch" Click="ElementListButtonClicked">Liste des éléments</Button>
+            <Button HorizontalAlignment="Stretch" Click="AnalysisButtonClicked">Analyse</Button>
+        </StackPanel>
+        <ContentControl x:Name="CurrentTabContent"></ContentControl>
+    </DockPanel>
+</Window>

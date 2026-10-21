@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:windevReader="clr-namespace:WindevReader;assembly=WindevReader"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Hirondelle.Windows.WindowViewerWindow"
+        Title="Visualisateur de fenêtres">
+    <DockPanel Margin="10">
+        <StackPanel Width="200" DockPanel.Dock="Left" Spacing="5">
+            <TextBlock FontWeight="Bold" x:Name="WindowNameText">Window Name</TextBlock>
+            <Image Source="/Resources/textures/window.png" x:Name="WindowPreviewImage"></Image>
+            <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="ViewSourceCodeButtonClicked">Voir le code source</Button>
+        </StackPanel>
+        <TabControl>
+            <TabItem Header="Général">
+                <StackPanel Orientation="Vertical" Spacing="5">
+                    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Padding="5">
+                        <StackPanel Spacing="4">
+                            <TextBlock FontWeight="Bold">Description</TextBlock>
+                            <DockPanel>
+                                <TextBlock DockPanel.Dock="Left" Width="300" VerticalAlignment="Center">Titre</TextBlock>
+                                <TextBox x:Name="WindowTitleValue" IsReadOnly="True"></TextBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock DockPanel.Dock="Left" Width="226" VerticalAlignment="Center">Dimensions</TextBlock>
+                                <StackPanel Orientation="Horizontal" Spacing="5">
+                                    <TextBlock VerticalAlignment="Center">X</TextBlock>
+                                    <TextBox x:Name="WindowXValue" IsReadOnly="True" MinWidth="0" Width="50">0</TextBox>
+                                    <TextBlock VerticalAlignment="Center">Y</TextBlock>
+                                    <TextBox x:Name="WindowYValue" IsReadOnly="True" MinWidth="0" Width="50">0</TextBox>
+                                    <TextBlock VerticalAlignment="Center">Lon.</TextBlock>
+                                    <TextBox x:Name="WindowWidthValue" IsReadOnly="True" MinWidth="0" Width="50">0</TextBox>
+                                    <TextBlock VerticalAlignment="Center">Haut.</TextBlock>
+                                    <TextBox x:Name="WindowHeightValue" IsReadOnly="True" MinWidth="0" Width="50">0</TextBox>
+                                </StackPanel>
+                            </DockPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Champs">
+                <DockPanel>
+                    <Panel x:Name="PreviewPanel" Background="LightGray" DockPanel.Dock="Top" Height="200">
+                        <Border x:Name="PreviewWindow" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="LawnGreen" BorderThickness="2">
+                            <Canvas x:Name="PreviewWindowCanvas"></Canvas>
+                        </Border>
+                    </Panel>
+                    <ListBox x:Name="ElementsList">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="windevReader:WindevUiElement">
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>
