@@ -1,11 +1,13 @@
 using System;
 using System.IO;
+using System.Text.Json;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.Platform.Storage;
 using WindevReader;
 
 namespace Hirondelle.Windows;
@@ -96,5 +98,31 @@ public partial class WindowViewerWindow : Window
     private void ViewSourceCodeButtonClicked(object? sender, RoutedEventArgs e)
     {
         new CodeViewerWindow(_window.CodeBlocks).ShowDialog(this);
+    }
+
+    private async void JsonExportButtonClicked(object? sender, RoutedEventArgs e)
+    {
+        IStorageFile? file = await StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions()
+        {
+            DefaultExtension = "json",
+            FileTypeChoices = new[]
+            {
+                new FilePickerFileType("Fichier JSON")
+                {
+                    Patterns = ["*.json"]
+                }
+            },
+            Title = "Export de la fenêtre JSON"
+        });
+        
+        if (file == null) return;
+
+        JsonSerializerOptions options = new JsonSerializerOptions(JsonSerializerDefaults.Web)
+        {
+            WriteIndented = true
+        };
+        
+        using StreamWriter wr = new(await file.OpenWriteAsync());
+        await wr.WriteAsync(JsonSerializer.Serialize(_window, options));
     }
 }

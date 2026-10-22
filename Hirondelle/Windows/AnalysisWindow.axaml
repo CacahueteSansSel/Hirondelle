@@ -12,6 +12,10 @@
                 <TextBlock x:Name="AnalysisVersionText" FontWeight="Bold">Analyse v0</TextBlock>
                 <TextBlock x:Name="AnalysisGuidText">GUID</TextBlock>
             </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" Margin="0 5 0 0" Spacing="4">
+                <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="EFExportButtonClicked">Exporter vers Entity Framework</Button>
+                <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="JsonExportButtonClicked">Exporter en JSON</Button>
+            </StackPanel>
             <ListBox x:Name="TableList" SelectionChanged="TableList_OnSelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="windevReader:WindevDataTable">
@@ -25,7 +29,7 @@
                 <TextBlock x:Name="TableNameText" FontWeight="Bold">Nom du fichier</TextBlock>
                 <TextBlock x:Name="TableCaptionText" FontWeight="Bold">Libellé</TextBlock>
                 <TextBlock x:Name="TablePhysicalNameText">Nom physique</TextBlock>
-                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                <StackPanel Orientation="Horizontal" Margin="40 5 0 0">
                     <TextBlock FontSize="12" Width="300">Nom</TextBlock>
                     <TextBlock FontSize="12" Width="300">Description</TextBlock>
                     <TextBlock FontSize="12" Width="100">Type</TextBlock>
@@ -34,7 +38,15 @@
             <ListBox x:Name="FieldsList">
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="windevReader:WindevDataField">
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Spacing="4">
+                            <StackPanel Orientation="Horizontal" Height="20" VerticalAlignment="Center">
+                                <Svg Path="/Resources/icons/key.svg" DockPanel.Dock="Left" ToolTip.Tip="Clé primaire"
+                                     CurrentColor="Green" Width="20" Height="20" IsVisible="{Binding IsPrimaryKey}" />
+                                <Svg Path="/Resources/icons/composed_key.svg" DockPanel.Dock="Left" ToolTip.Tip="Clé composée"
+                                     CurrentColor="{DynamicResource SystemBaseHighColor}" Width="20" Height="20" IsVisible="{Binding IsCompositeKey}" />
+                                <Svg Path="/Resources/icons/double_key.svg" DockPanel.Dock="Left" ToolTip.Tip="Clé doublon"
+                                     CurrentColor="{DynamicResource SystemBaseHighColor}" Width="20" Height="20" IsVisible="{Binding AllowsDuplicates}" />
+                            </StackPanel>
                             <TextBlock Text="{Binding Name}" Width="300"></TextBlock>
                             <TextBlock Text="{Binding Caption}" Width="300"></TextBlock>
                             <TextBlock Text="{Binding Type}" Width="100"></TextBlock>

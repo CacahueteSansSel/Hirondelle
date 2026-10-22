@@ -9,6 +9,7 @@
     <DockPanel Margin="10">
         <StackPanel Orientation="Vertical" Spacing="15" DockPanel.Dock="Top">
             <TextBlock FontWeight="Bold" HorizontalAlignment="Center">Bienvenue sur Hirondelle</TextBlock>
+            <TextBlock x:Name="VersionText" FontSize="12" HorizontalAlignment="Center">Version XX - windev-re YY</TextBlock>
             <TextBlock TextWrapping="Wrap">Outil d'analyse et d'extraction de formats et projets WINDEV développé à l'aide de windev-re.</TextBlock>
         </StackPanel>
         <Button DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="Button_OnClick">Ouvrir un projet WINDEV</Button>

@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.Json;
 using System.Web;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
+using WindevReader;
 
 namespace Hirondelle;
 
@@ -26,6 +28,9 @@ public partial class MainWindow : Window
         }
 
         KnownProjectsList.ItemsSource = _knownProjectEntries;
+
+        VersionText.Text =
+            $"Hirondelle {Assembly.GetExecutingAssembly().GetName().Version!.ToString(3)} — windev-re {typeof(WindevFile).Assembly.GetName().Version!.ToString(3)}";
     }
 
     private async void Button_OnClick(object? sender, RoutedEventArgs e)

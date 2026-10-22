@@ -11,6 +11,7 @@
             <TextBlock FontWeight="Bold" x:Name="WindowNameText">Window Name</TextBlock>
             <Image Source="/Resources/textures/window.png" x:Name="WindowPreviewImage"></Image>
             <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="ViewSourceCodeButtonClicked">Voir le code source</Button>
+            <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="JsonExportButtonClicked">Exporter en JSON</Button>
         </StackPanel>
         <TabControl>
             <TabItem Header="Général">
