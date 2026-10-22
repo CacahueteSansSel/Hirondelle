@@ -2,12 +2,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" Width="400" Height="135"
+        xmlns:hirondelle="clr-namespace:Hirondelle"
+        mc:Ignorable="d" Width="400" Height="500"
         x:Class="Hirondelle.MainWindow" CanResize="False" CanMaximize="False"
-        Title="Hirondelle">
-    <StackPanel Orientation="Vertical" Margin="10" Spacing="15">
-        <TextBlock FontWeight="Bold">Bienvenue sur Hirondelle</TextBlock>
-        <TextBlock TextWrapping="Wrap">Outil d'analyse et d'extraction de formats et projets WINDEV développé à l'aide de windev-re.</TextBlock>
-        <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="Button_OnClick">Ouvrir un projet WINDEV</Button>
-    </StackPanel>
+        Title="Hirondelle" WindowStartupLocation="CenterScreen">
+    <DockPanel Margin="10">
+        <StackPanel Orientation="Vertical" Spacing="15" DockPanel.Dock="Top">
+            <TextBlock FontWeight="Bold" HorizontalAlignment="Center">Bienvenue sur Hirondelle</TextBlock>
+            <TextBlock TextWrapping="Wrap">Outil d'analyse et d'extraction de formats et projets WINDEV développé à l'aide de windev-re.</TextBlock>
+        </StackPanel>
+        <Button DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="Button_OnClick">Ouvrir un projet WINDEV</Button>
+        <ListBox x:Name="KnownProjectsList" Margin="0,10" DoubleTapped="KnownProjectsList_OnDoubleTapped">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="hirondelle:KnownProjectEntry">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock FontWeight="Bold" Text="{Binding Name}"></TextBlock>
+                        <TextBlock FontSize="10" Opacity="0.5" Text="{Binding Path}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
 </Window>

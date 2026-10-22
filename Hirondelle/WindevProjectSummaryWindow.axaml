@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" CanMaximize="True" CanResize="True"
         x:Class="Hirondelle.WindevProjectSummaryWindow" Width="800" Height="500"
-        Title="Description du projet WINDEV">
+        Title="Description du projet WINDEV" WindowStartupLocation="CenterScreen">
     <DockPanel Margin="10">
         <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="200" Spacing="4">
             <TextBlock x:Name="ProjectNameText" FontWeight="Bold">Project Name</TextBlock>

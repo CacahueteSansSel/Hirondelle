@@ -11,7 +11,7 @@ public static class HirondelleManager
     public static WdpWindevProject? CurrentProject { get; private set; }
     public static string Path { get; private set; }
 
-    public static void LoadProject(string path)
+    public static bool LoadProject(string path)
     {
         _openOptions = new WindevOpenOptions() { AllowUntestedVersions = true };
         
@@ -21,6 +21,8 @@ public static class HirondelleManager
         CurrentProject = WdpWindevProject.Open(wdpPath, _openOptions);
         
         new WindevProjectSummaryWindow().Show();
+
+        return true;
     }
 
     private static string FindFileInPath(string path, string ext)

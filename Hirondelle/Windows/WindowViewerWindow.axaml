@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:windevReader="clr-namespace:WindevReader;assembly=WindevReader"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Hirondelle.Windows.WindowViewerWindow"
+        x:Class="Hirondelle.Windows.WindowViewerWindow" WindowStartupLocation="CenterScreen"
         Title="Visualisateur de fenêtres">
     <DockPanel Margin="10">
         <StackPanel Width="200" DockPanel.Dock="Left" Spacing="5">

@@ -5,7 +5,7 @@
         xmlns:windevReader="clr-namespace:WindevReader;assembly=WindevReader"
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="450"
         x:Class="Hirondelle.Windows.AnalysisWindow"
-        Title="Visualisateur de l'analyse du projet">
+        Title="Visualisateur de l'analyse du projet" WindowStartupLocation="CenterScreen">
     <DockPanel Margin="10">
         <DockPanel DockPanel.Dock="Left" Width="300">
             <StackPanel DockPanel.Dock="Top" Margin="0 0 0 5">
