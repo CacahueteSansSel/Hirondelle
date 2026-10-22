@@ -1,5 +1,7 @@
 # Hirondelle
 
+![icon](res/icon.png)
+
 Hirondelle est un outil libre et open-source permettant l'ouverture et l'étude d'un projet WINDEV hors de l'écosystème PC SOFT.
 
 > **Disclaimer**  
